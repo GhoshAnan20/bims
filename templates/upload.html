@@ -1,0 +1,148 @@
+{% extends "base2.html" %}
+{% block title %} Upload Documents {% endblock title %} 
+
+
+{% block body %} 
+<div style = "padding-top: 15px; text-align: left">
+  {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+
+<h3 style = "font-family: Poppins; 
+  font-weight: 600; font-size: 28px; margin-top: 60px; margin-left: 80px;"> Upload Documents </h3>
+
+  <style>
+    .alert {
+      margin-top: 26px;
+      position: relative;
+      z-index: 9999; 
+      margin-bottom: 15px;
+    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container {
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 680px;
+    height: 400px;
+    background-color: #f9f9f9;
+    padding: 10px 30px 40px;
+    margin-left: 80px;
+    margin-top: 30px;
+  }
+  
+  .card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    
+  }
+  
+  .drop_box {
+    margin: 10px 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+    height: 400px;
+  }
+  
+  .drop_box h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+  }
+  
+  .drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #a3a3a3;
+  }
+  
+  .btn {
+    text-decoration: none;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .btn:hover{
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid #010101;
+  }
+  .form input {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #e2e2e2;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+  }
+  
+</style>
+
+{% comment %} <div class="container"> {% endcomment %}
+  <div class="card">
+    <div class="drop_box" >
+      <header>
+        <h4>Select File here</h4>
+      </header>
+      <p>Files Supported: PNG, JPG, JPEG</p>
+      <form method = 'POST' action = '/upload' enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="mb-3">
+          <select type="form-select" class="form-control" id="title" name = "title" placeholder="File Name*" required> 
+            <option selected>File Name</option>
+            <option value="Pan Card">Pan Card</option>
+            <option value="Aadhar Card">Aadhar Card</option>
+            <option value="CBSE 10th Marksheet">CBSE 10th Marksheet</option>
+            <option value="CBSE 12th Marksheet">CBSE 12th Marksheet</option>
+            <option value="SSC 10th Marksheet">SSC 10th Marksheet</option>
+            <option value="HSC 12th Marksheet">HSC 12th Marksheet</option>
+            <option value="Migration Certificate">Migration Certificate</option>
+            <option value="Leaving Certificate" >Leaving Certificate</option>
+            <option value="Domicile Certificate">Domicile Certificate</option>
+          </select>
+            <input style = "margin-top: 10px;" type="file" name="file" id="file" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" style = "border-radius: 50px; margin-left: 135px;">Upload</button>
+        
+   
+        </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% endblock body %}
+

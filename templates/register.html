@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock title %} 
+
+{% block body %}
+{% for message in messages %}
+
+<div class="alert alert-dark" role="alert">
+  {{ message }}
+</div>
+{% endfor %}
+<style>
+body {
+  font-family: Poppins;
+  color: white;
+  margin: 0;
+}
+
+.alert {
+  margin-top: 26px;
+  position: relative;
+  z-index: 9999; 
+  margin-bottom: 15px;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 130px;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: black;
+}
+
+.right {
+  right: 0;
+  background-color: #F9F9F9;
+  color: black;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.required::after {
+  content: ' *';
+  color: red;
+}
+
+.container {
+  margin-top: 110px;
+  width: 75%;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.form-group:last-child {
+  margin-bottom: 20px; /* Add margin bottom to the last form group */
+}
+</style>
+</head>
+<body>
+
+<div class="split left">
+  <div style="width: 750px;
+              height: 580px;
+              background-color: black;
+              border: 1px solid black;
+              margin-top: 30px;
+              margin-left: 0px ">
+    <h2 style="font-size: 40px;
+               font-family: Poppins;
+               color: white;
+               margin-top: 120px;
+               margin-left: 50px;
+               line-height: 1.5;">
+      Your identity, built on  <br> blocks of trust.
+    </h2>
+  </div>
+</div>
+
+<div class="split right">
+  <div style=" text-align: left">
+    
+  </div>
+  <div class="centered">
+    <h2 style="margin-bottom: 550px;">Register</h2>
+  </div>
+  <form method="POST" action="/register" class="container">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username*" required>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name*" required>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last name*" required>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email ID*" required>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password*" required>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="confirmpass" name="confirmpass" placeholder="Confirm Password*" required>
+    </div>
+    
+    <button class="btn btn-dark" type="submit" style="margin-top: 20px; border-radius: 20px;"> Register </button>
+    
+    <h6 style="text-align: center; margin-top: 10px; font-size: 15px;"> Already a Member? <a href="/log_in" style="color: blue;"> Login </a> </h6>
+  </form>
+
+  <script>
+    // JavaScript to populate form fields with submitted values
+    const submittedValues = {
+        username: "{{ username }}",
+        firstname: "{{ firstname }}",
+        lastname: "{{ lastname }}",
+        email: "{{ email }}",
+        password: "{{ password }}",
+        confirmpass: "{{ confirmpass }}"
+    };
+
+    for (const field in submittedValues) {
+        const element = document.getElementById(field);
+        if (element) {
+            element.value = submittedValues[field];
+        }
+    }
+</script>
+</div>
+
+{% endblock body %}

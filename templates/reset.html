@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %} Reset Password {% endblock title %} 
+
+{% block body%}
+<div style = "padding-top: 15px; text-align: left">
+  {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+<style>
+  .alert {
+    margin-top: 26px;
+    position: relative;
+    z-index: 9999; 
+    margin-bottom: 15px;
+  }
+body {
+  font-family: Poppins;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 130px;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: black;
+}
+
+.right {
+  right: 0;
+  background-color: #F9F9F9;
+  color: black;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="split left">
+  <div style = "width: 750px;
+  height: 580px;
+  background-color: black;
+  border: 1px solid black; margin-top: 30px; margin-left: 0px ">
+  <h2 style = "font-size: 40px; font-family: Poppins; color: white; margin-top: 120px; margin-left: 50px; line-height: 1.5">
+    Your identity, built on  <br> blocks of trust.
+</h2>
+    
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <h2 style = "margin-bottom: 550px;">Reset Password</h2>
+    
+  </div>
+  <form method = "POST"  class = container width = 100px style = "margin-top: 150px; width: 75%">
+    {% csrf_token %}
+    <div class="form-group">
+      
+      <input type="password" class="form-control" id="newpassword" name = "newpassword" placeholder="New Password*" required>
+    
+    </div>
+    <div class="form-group" style = "margin-top: 10px;">
+      
+      <input type="password" class="form-control" id="conpassword" name = "conpassword" placeholder="Confirm New Password*" required>
+    </div>
+    
+
+    
+
+    <input type = "hidden" name = "username" value = {{ username }}>
+    <button class = "btn btn-dark" type = "submit" style = "margin-top: 20px; border-radius: 20px;"> Reset </button>
+    
+  </form>
+  </div>
+
+
+
+
+</div>
+     {%endblock body%} 
+
+
+     

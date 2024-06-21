@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+{% block title %} My Account {% endblock title %} 
+
+{% block body %}
+<style>
+    .alert {
+        margin-top: 26px;
+        position: relative;
+        z-index: 9999; 
+        margin-bottom: 15px;
+      }
+    .user-info {
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px 0;
+        margin-left: 60px;
+    }
+    .hidden-chars {
+	    color: #ccc;
+	    filter: blur(2.5px);
+    }
+    table {
+	    width: 100%;
+	    border-colapse: collapse;
+	    margin-top: 20px;
+    }
+    th, td {
+	    padding: 10px;
+	    border: 1px solid #ddd;
+    }
+    
+</style>
+
+<h2 style = "margin-top: 80px; margin-left: 80px; font-weight: 700"> {{user.first_name}}'s Account Information </h2>
+    <div class="user-info">
+        <h5 style = "font-weight: 400"><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</h5>
+        <h5 style = "font-weight: 400"><strong>Username:</strong> {{ user.username }}</h5>
+        <h5 style = "font-weight: 400"><strong>Email:</strong> {{ user.email }}</h5>
+<h2 style="margin-top: 50px; font-weight: 700"> Transaction History </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Transaction ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if transactions %}
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.title }}</td>
+                <td>{{ transaction.transaction_id|slice:":8" }}<span class="hidden-chars">{{ transaction.transaction_id|slice:"8:" }}</span></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">No transactions found.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

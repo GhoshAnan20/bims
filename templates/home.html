@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock title %} 
+
+{% block body %}
+{% comment %} Intro line and description {% endcomment %}
+<div class="container">
+  <h1 style = "text-align: center; font-family: Poppins; font-weight: 500; color: black; margin-top: 100px; margin-right: 180px; margin-left: 180px;">
+    Experience the future of verification. Get started and unlock a world of secure possibilities.
+  </h1>
+
+  <h5 style = "text-align: justify; font-family: Poppins; color: black; font-weight: 400; margin-top: 25px; margin-right: 300px; margin-left: 300px; line-height: 1.5;">
+    Imagine a secure, permanent digital passport you control. That's what a blockchain-based identity system offers. It stores your verified credentials (like your passport, diploma, or license) on a tamper-proof, distributed ledger, accessible only by you. No more centralized databases, no more identity theft. Verify yourself instantly, anywhere, with anyone who trusts the blockchain.
+  </h5>
+{% comment %} Get Started Button {% endcomment %}
+  <div style = "  margin-left: 555px; margin-top: 40px;">
+  <a type="button" href = "/register" class="btn btn-dark" style = "font-size: 18px; font-family: Poppins; border-radius: 30px; width: 200px;">
+     Get Started. </a>
+</div>
+</div>
+
+{% comment %} Features {% endcomment %}
+<h2 style = "text-align: center; font-family: Poppins; font-weight: 500; color: black; margin-top: 180px"> 
+  Features
+</h2>
+
+
+<style>
+  .alert {
+    margin-top: 26px;
+    position: relative;
+    z-index: 9999; 
+    margin-bottom: 15px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Poppins;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    padding: 16px;
+    text-align: center;
+    background-color: #F9F9F9;
+    border-color: #F9F9F9;
+  }
+  </style>
+
+  <div class="column">
+    <div class="card" style = "left: 75px; background-color: #f9f9f9">
+        <img src="/static/pic2.png" height="280px" width="300px" class="card-img-top" alt="...">
+      <h5 style = "padding-top: 20px; font-family: Poppins">Tamper-Proof Data Storage </h5>
+      <p style = "text-align: justify" > Forget fading ink and lost papers. 
+        Lock your academic legacy in the unbreakable vault of blockchain. Your transcripts, diplomas, and 
+        certificates rest secure on a tamperproof, distributed ledger, impervious to hacks and manipulation. 
+        Forever yours, forever verifiable.</p>
+      
+    </div>
+  </div>
+
+  <div class="column" style = "margin-left: 170px; background-color: #f9f9f9">
+    <div class="card">
+        <img src="/static/pic1.png" height="280px" width="300px" class="card-img-top" alt="...">
+      <h5 style = "padding-top: 20px; font-family: Poppins;text-align: center"> Decentralized Authentication and Verification </h5>
+      <p style = "text-align: justify" >  No more waiting for universities to respond, no more worries about 
+        forgeries or fraud. Share your verified transcript, diploma, or certificate with a single click.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          No more waiting for universities to respond, no more worries about forgeries or fraud. Share ypur verified transcript, diploma, or certificate with a single click.</p>
+      
+    </div>
+  </div>
+  
+  <div class="column" style = "margin-left: 100px; background-color: #f9f9f9">
+    <div class="card">
+        <img src="/static/pic3.png" height="280px" width="300px" class="card-img-top" alt="...">
+      <h5 style = "padding-top: 20px; font-family: Poppins; "> Enhanced Privacy and Security </h5>
+      <p style = "text-align: justify">Own your academic journey with blockchain.
+        Control your data, share selectively, and vanish the risk of breaches. 
+        Unhackable emcryption guards your achievments, while tamperproof shines a light on their authenticity.
+         Secure your academic legacy on the blockchain.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+{% endblock body %}
+

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+    <title> {% block title %}{% endblock title %} | Block.</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0" style = "background-color: #F9F9F9;">
+
+    <!-- CSS for dropdown -->
+    <style>
+        ul li ul.dropdown li {
+            display: block;
+            background: #f9f9f9;
+            margin: 2px 0px;
+        }
+
+        ul li ul.dropdown {
+            width: auto;
+            background: #f9f9f9;
+            position: absolute;
+            z-index: 999;
+            display: none;
+            margin-left: 250px;
+            text-align: left;
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: #f9f9f9;
+            padding: 10px 30px 40px;
+            
+            
+        }
+        ul li a:hover {
+            background: #f9f9f9;
+            
+        }
+        ul li:hover ul.dropdown{
+            display: block;
+        }
+
+
+    </style>
+
+    <!-- Navigation Bar -->
+    
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <img src="https://www.svgrepo.com/show/25784/cube.svg" width="70" height="70" margin:"100%" style="
+        padding-right: 10px;
+    ">
+        <a class="navbar-brand" href="/" style = "font-size: 1.85em; font-family: Poppins; font-weight: 600";>Block.</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav justify-content" style="margin-left: 350px; margin-top: 15px">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/" style = "font-size: 1.25em; font-family: Poppins; color: black">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard" style = "font-size: 1.25em; font-family: Poppins; color: black">Documents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about" style = "font-size: 1.25em; font-family: Poppins; color: black">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href = "/contact" style = "font-size: 1.25em; font-family: Poppins; color: black">Contact</a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img src="/static/person.png" width="40" height="40" style="margin-left: 380px;" >
+                </a>
+                <ul class = 'dropdown'>
+                    <li> <a href = "/account"> My Account </a> </li>
+                    <li> <a href = "{% url 'log_out'%}" > Logout </a> </li>
+                </ul>
+            </li>
+            {% comment %} <li class="nav-item">
+                <a class="nav-link " href = "/log_in" style = "font-size: 1.25em; font-family: Poppins">
+                    <img src="/static/person.png" width="40" height="40" style="margin-left: 380px;">
+                </a>
+              </li> {% endcomment %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+  
+
+    
+    
+
+    {% block body %}{% endblock body %}
+
+    {% block footer %} {% endblock footer %}
+    
+  </body>
+</html>

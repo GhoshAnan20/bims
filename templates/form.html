@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% include "firebase.html" %}
+
+{% block title %} Form {% endblock title %} 
+
+{% block body %}
+<div style = "padding-top: 15px; text-align: left">
+  {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-JQ8o2n438AqfkkwnfPq5TO7hGS6Z0wmzN+gYaqXtlU0fZlJ8vR5HR5oQ8g3JWlE9" crossorigin="anonymous"></script>
+<style>
+  .alert {
+    margin-top: 26px;
+    position: relative;
+    z-index: 9999; 
+    margin-bottom: 15px;
+  }
+  .verify-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Optional hover effect */
+  .verify-button:hover {
+    background-color: #0056b3;
+  }
+
+  .custom-input {
+    width: calc(100% - 40px); /* Adjust as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+</style>
+
+
+
+<h3 style = "margin-top: 20px; text-align: center; margin-left: 500px; margin-right: 430px"> Kindly provide additional
+   details to finalize the registration process. </h3>
+<div class = "container" style = "margin-left: 200px; margin-right: 200px; margin-top: 15px;">
+
+  <form method = "POST" action = "/form">
+    {% csrf_token %}
+    {{ form.as_p }}
+  <div class="form-floating mb-3" style = "margin-left: 310px;">
+    <input type="text" class="form-control" id="floatingInput" name = "firstName" placeholder = "First Name*" style = "width: 50%; margin-top: 10px;" required>
+    <label for="floatingInput">First Name*</label>
+  </div>
+  <div class="form-floating" style = "margin-left: 310px; margin-top: 10px;">
+    <input type="text" class="form-control" id="floatingPassword" name = "middleName" placeholder = "Middle Name" style = "width: 50%;">
+    <label for="floatingPassword">Middle Name</label>
+  </div>
+  <div class="form-floating" style = "margin-left: 310px; margin-top: 10px;">
+    <input type="text" class="form-control" id="floatingPassword" name = "lastName" placeholder = "Last Name*" style = "width: 50%;" required>
+    <label for="floatingPassword">Last Name*</label>
+  </div>
+  <div class="row g-2">
+    <div class="col-md-5">
+      <div class="form-floating" style = "width: 890px;">
+        <input type="date" class="form-control" id="floatingInputGrid" name = "dob" placeholder="Date of Birth*" 
+            style = "width: 25%; margin-top: 10px; margin-left: 310px;">
+        <label for="floatingInputGrid" style = "margin-left: 310px;"> Date of Birth* </label>
+      </div>
+    </div>
+    <div class="col-md-6.5" style = "width: 600px; padding-right: 78px;">
+      <div class="form-floating" >
+        <select class="form-select" id="floatingSelectGrid" name = "gender" placeholder="Gender*" 
+        style = "width: 50%; margin-top:10px; ">
+          <option selected>Select</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="O">Other</option>
+        </select>
+        <label for="floatingSelectGrid">Gender*</label>
+      </div>
+    </div>
+  </div>
+  <div class="row g-2">
+    <div class="col-md-5">
+      <div class="form-floating" style = "width: 890px;">
+        <input type="text" class="form-control" id="floatingInputGrid" name = "motherName" placeholder="Mother's first name*" 
+            style = "width: 25%; margin-top: 10px; margin-left: 310px;">
+        <label for="floatingInputGrid" style = "margin-left: 310px;"> Mother's first name* </label>
+      </div>
+    </div>
+    <div class="col-md-6.5" style = "width: 600px; padding-right: 78px;">
+      <div class="form-floating" >
+        <input class="form-control" id="floatingInputGrid" name = "fatherName" placeholder="Father's first name*" 
+        style = "width: 50%; margin-top:10px; ">
+        <label for="floatingInputGrid" style = ""> Father's first name* </label>
+      </input>
+      </div>
+    </div>
+  </div>
+  <div class="form-floating" style = "margin-left: 310px; margin-top: 10px;">
+    <input type="text" class="form-control" id="floatingPassword" name = "contactNumber" placeholder = "Contact Number*" style = "width: 50%;">
+    <label for="floatingPassword">Contact Number*</label>
+    
+  </div>
+  
+  <div class="form-floating" style = "margin-left: 310px; margin-top: 10px;">
+    <input type="text" class="form-control" id="floatingPassword" name = "aadhaarNumber" placeholder = "Aadhaar Number*" style = "width: 50%;">
+    <label for="floatingPassword">Aadhaar Number*</label>
+  </div>
+  <div class="form-floating" style = "margin-left: 310px; margin-top: 10px;">
+    <input type="text" class="form-control" id="floatingPassword" name = "panNumber" placeholder = "PAN Number*" style = "width: 50%;">
+    <label for="floatingPassword">PAN Number*</label>
+  </div>
+  <button class = "btn btn-dark" type = "submit" style = "margin-top: 20px; border-radius: 20px; margin-left: 310px;"> Submit </button>
+
+
+
+</form>
+{% endblock body %}
